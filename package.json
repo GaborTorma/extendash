@@ -1,6 +1,6 @@
 {
 	"name": "extendash",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "loadsh extended with deepdash and some other functions.",
 	"main": "index.js",
 	"scripts": {
