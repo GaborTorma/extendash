@@ -5,10 +5,15 @@ module.exports = {
 		mocha: true,
 	},
 	parserOptions: {
-		ecmaVersion: '2021',
+		parser: '@babel/eslint-parser',
 		sourceType: 'module',
+		ecmaVersion: '2022',
+		ecmaFeatures: {
+			experimentalObjectRestSpread: true,
+		},
 	},
 	extends: [
+		'eslint:recommended',
 		'plugin:prettier/recommended',
 		'plugin:mocha/recommended',
 		'plugin:chai-friendly/recommended',
@@ -17,6 +22,7 @@ module.exports = {
 		_: 'readonly',
 	},
 	rules: {
+		'no-unused-expressions': 'off',
 		curly: ['error', 'all'],
 		'comma-dangle': [
 			'error',
