@@ -44,7 +44,9 @@ const truncateOptions = {
 _.truncateArray = (arr, options = truncateOptions) => {
 	if (_.isArray(arr) && _.size(arr) > options.size) {
 		const truncated = arr.slice(0, options.size - 1)
-		return options.total ? truncated.concat(`...total: ${_.size(arr)}'`) : truncated
+		return options.total
+			? truncated.concat(`...total: ${_.size(arr)}'`)
+			: truncated
 	}
 	return arr
 }
@@ -78,7 +80,8 @@ _.isDefined = (value) => {
 _.isInteresting = (value) => {
 	return (
 		_.isDefined(value) &&
-		((!_.isString(value) && !_.isPlainObject(value) && !_.isArray(value)) || _.size(value))
+		((!_.isString(value) && !_.isPlainObject(value) && !_.isArray(value)) ||
+			_.size(value))
 	)
 }
 
@@ -100,7 +103,10 @@ _.isFalse = (value) => {
 
 _.isDateValid = (value) => {
 	const date = new Date(value)
-	return Object.prototype.toString.call(date) === '[object Date]' && !_.isNaN(date.getTime())
+	return (
+		Object.prototype.toString.call(date) === '[object Date]' &&
+		!_.isNaN(date.getTime())
+	)
 }
 
 export default _
